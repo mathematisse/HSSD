@@ -8,7 +8,7 @@ public class Menu_Manager : MonoBehaviour
 {
     Button button_Start;
     Button button_Quit;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,7 @@ public class Menu_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void StartGame()
@@ -34,4 +34,5 @@ public class Menu_Manager : MonoBehaviour
     {
         Application.Quit();
     }
+    
 }
