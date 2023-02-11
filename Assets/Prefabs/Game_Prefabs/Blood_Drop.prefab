@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9130558745623688951}
   - component: {fileID: 9130558745623688948}
   - component: {fileID: 9130558745623688949}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Blood_Drop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9130558747018036083}
   - component: {fileID: 9130558747018036082}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

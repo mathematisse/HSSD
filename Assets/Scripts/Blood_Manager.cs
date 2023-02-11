@@ -18,11 +18,13 @@ public class Blood_Manager : MonoBehaviour
         
     }
     
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        for(int i = 0; i < 10; i++)
+        if (collision.gameObject.GetComponent<Player_Movement>() == null)
+            return;
+        for (int i = 0; i < 10; i++)
         {
-            Instantiate(bloodDrop, transform.position, Quaternion.identity);
+            CreateBloodDropInRandomDirection();
         }
         Destroy(this.gameObject);
     }
@@ -31,6 +33,6 @@ public class Blood_Manager : MonoBehaviour
     {
         Vector2 randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         GameObject bloodDropInstance = Instantiate(bloodDrop, transform.position, Quaternion.identity);
-        bloodDropInstance.GetComponent<Rigidbody2D>().AddForce(randomDirection * 1000f);
+        bloodDropInstance.GetComponent<Rigidbody2D>().AddForce(randomDirection * 10f);
     }
 }
