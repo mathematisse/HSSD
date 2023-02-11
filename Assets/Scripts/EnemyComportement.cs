@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyComportement : MonoBehaviour
 {
     public GameObject Player;
-    public float range = 100.0f;
+    public float range = 15.0f;
     public float speed = 6.0f;
     public float moveSpeed = 3.0f;
     private float rightDir = 1.0f;
