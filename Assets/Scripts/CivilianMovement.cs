@@ -8,8 +8,11 @@ public class CivilianMovement : MonoBehaviour
 
     private float rightDir = 1.0f;
 
+    Blood_Manager bloodManager;
+
     void Start()
     {
+        bloodManager = GetComponent<Blood_Manager>();
     }
 
     void FixedUpdate()
@@ -25,5 +28,9 @@ public class CivilianMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         rightDir = rightDir * (-1);
+        if (collision.gameObject.GetComponent<Player_Movement>() != null)
+        {
+            bloodManager.DoBloodCollision(collision);
+        }
     }
 }
