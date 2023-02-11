@@ -33,9 +33,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - NPC
+  - Player
+  - Blood
   - 
   m_SortingLayers:
   - name: Default
