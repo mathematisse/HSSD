@@ -6,24 +6,13 @@ public class Blood_Manager : MonoBehaviour
 {
     public GameObject bloodDrop;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     public void DoBloodCollision(Collision2D collision)
     {
         for (int i = 0; i < 10; i++)
         {
             CreateBloodDropInRandomDirection(collision.relativeVelocity.normalized);
         }
+        soundManager.instance.PlayManagerClip(0);
         Destroy(this.gameObject);
     }
     
