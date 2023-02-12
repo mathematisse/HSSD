@@ -36,6 +36,7 @@ public class Player_Movement : MonoBehaviour
     private TrailRenderer bloodTrailRenderer;
     private ParticleSystem _particleSystem_Trail;
     private ParticleSystem _particleSystem_Load;
+    private Player_Manager manager;
 
     private float speedCurveTimer = 0.0f;
     private bool isPreparingToRun = false;
@@ -56,6 +57,7 @@ public class Player_Movement : MonoBehaviour
         var ps = GetComponentsInChildren<ParticleSystem>();
         _particleSystem_Trail = ps[0];
         _particleSystem_Load = ps[1];
+        manager = GetComponent<Player_Manager>();
     }
 
     void Update()
@@ -63,7 +65,8 @@ public class Player_Movement : MonoBehaviour
         direction.x = Input.GetAxis("Horizontal");
         direction.y = Input.GetAxis("Vertical");
         direction.Normalize();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!manager.canRun) StopRunning();
+        if (manager.canRun && Input.GetKeyDown(KeyCode.Space))
         {
             PrepareToRun();
         }
@@ -157,10 +160,12 @@ public class Player_Movement : MonoBehaviour
         Debug.Log("Must have hurt");
         blood_trail_timer = 0f;
         bloodTrailRenderer.emitting = true;
+        manager.onKill();
     }
 
     public void IGotShot()
     {
+        manager.onDamage();
         Debug.Log("Got shot");
     }
 }
