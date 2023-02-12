@@ -1,9 +1,8 @@
-
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(ParticleSystem))]
-public class Light_Particles : MonoBehaviour
+public class Light_Particle_Spawn : MonoBehaviour
 {
     public GameObject m_Prefab;
 
