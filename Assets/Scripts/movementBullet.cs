@@ -12,11 +12,20 @@ public class movementBullet : MonoBehaviour
     {
         Player = GameObject.Find("Player");
         direction = (Player.transform.position - transform.position).normalized * speed;
-        Destroy(gameObject, 5f);
     }
 
     void FixedUpdate() 
     {
         transform.Translate(direction * Time.fixedDeltaTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var p = collision.gameObject.GetComponent<Player_Movement>();
+        if (p != null && p.isRunning)
+        {
+            p.IKilledSomeone();
+        }
+        Destroy(gameObject);
     }
 }

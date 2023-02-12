@@ -16,6 +16,15 @@ public class EnemyComportement : MonoBehaviour
     private float nextFire = 0.0f;
 
     private float distance;
+    Blood_Manager bloodManager;
+
+
+    void Start()
+    {
+        bloodManager = GetComponent<Blood_Manager>();
+
+    }
+
     void FixedUpdate()
     {
         distance = Vector2.Distance(transform.position, Player.transform.position);
@@ -35,6 +44,12 @@ public class EnemyComportement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         rightDir = rightDir * (-1);
+        var p = collision.gameObject.GetComponent<Player_Movement>();
+        if (p != null && p.isRunning)
+        {
+            bloodManager.DoBloodCollision(collision);
+            p.IKilledSomeone();
+        }
     }
 
     void Shoot()
