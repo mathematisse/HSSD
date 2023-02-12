@@ -47,8 +47,16 @@ public class Player_Manager : MonoBehaviour
                 canRun = false;
                 mana = 0;
             }
+            Debug.Log("mana = " + mana);
             manaOutput.value = mana / 100f;
         }
+    }
+
+    public void onHeal()
+    {
+        if (isDead) return;
+        hearts++;
+        heartsOutput.value = hearts;
     }
 
     public void onDrug()
@@ -70,13 +78,6 @@ public class Player_Manager : MonoBehaviour
     {
         killCounter++;
         if (killCounterOutput != null && showKillsInHud) killCounterOutput.text = getKillString();
-    }
-
-    public void onHeal()
-    {
-        if (isDead) return;
-        hearts++;
-        heartsOutput.value = hearts;
     }
 
     string getKillString()

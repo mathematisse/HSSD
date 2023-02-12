@@ -140,7 +140,7 @@ public class Player_Movement : MonoBehaviour
         animator.speed = runSpeed / moveSpeed;
     }
     
-    public void StopRunning()
+    private void StopRunning()
     {
         if (!isRunning && !isPreparingToRun)
         {
@@ -160,7 +160,6 @@ public class Player_Movement : MonoBehaviour
         Debug.Log("Must have hurt");
         blood_trail_timer = 0f;
         bloodTrailRenderer.emitting = true;
-        manager.onKill();
     }
 
     public void IGotShot()

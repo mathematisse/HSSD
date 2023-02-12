@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 7913517001893873840}
   - component: {fileID: 7913517001893873841}
   - component: {fileID: 7913517001893873844}
-  - component: {fileID: 7978325704230089575}
   m_Layer: 26
   m_Name: EnemyPrefab
   m_TagString: Untagged
@@ -67,7 +66,7 @@ Transform:
   m_Children:
   - {fileID: 7913517001866638859}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7913517001893873846
 SpriteRenderer:
@@ -110,7 +109,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7e8c492e9c2ea0e4db598a894540648f, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0.6226415, g: 0.12041651, b: 0.12041651, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -183,7 +182,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.21133333}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.28866667}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -209,9 +208,9 @@ MonoBehaviour:
   Bullet: {fileID: 799463041154508742, guid: 8b651504703146545a1dee2d91be046b, type: 3}
   firePoint: {fileID: 7913517001866638859}
   range: 15
-  attackSpeed: 5
+  speed: 6
   moveSpeed: 3
-  fireRate: 1
+  fireRate: 0.5
 --- !u!114 &7913517001893873844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,23 +224,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodDrop: {fileID: 9130558745623688944, guid: bffe291fd49bb1244b377ac314f8c213, type: 3}
---- !u!95 &7978325704230089575
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7913517001893873842}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: acdfeb9ae1b86cc46aa6c4d530c96d33, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0

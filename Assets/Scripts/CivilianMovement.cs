@@ -10,39 +10,34 @@ public class CivilianMovement : MonoBehaviour
 
     Blood_Manager bloodManager;
 
-    private Animator animator;
-    private Rigidbody2D rb;
     void Start()
     {
         bloodManager = GetComponent<Blood_Manager>();
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-    }
-
-    private void Update()
-    {
-        animator.SetFloat("VelX", rb.velocity.x);
-        animator.SetFloat("VelY", rb.velocity.y);
     }
 
     void FixedUpdate()
     {
         if (rightDir == 1.0f) {
-            rb.velocity = Vector2.right * moveSpeed;
+            transform.Translate(Vector2.right * moveSpeed * Time.fixedDeltaTime);
         }
         if (rightDir == -1.0f) {
-            rb.velocity = Vector2.left * moveSpeed;
+            transform.Translate(Vector2.left * moveSpeed * Time.fixedDeltaTime);
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         rightDir = rightDir * (-1);
-        var p = collision.gameObject.GetComponent<Player_Movement>();
-        if (p != null && p.isRunning)
+        var playerMovement = collision.gameObject.GetComponent<Player_Movement>();
+        var playerManager = collision.gameObject.GetComponent<Player_Manager>();
+        if (playerMovement != null && playerMovement.isRunning)
         {
             bloodManager.DoBloodCollision(collision);
-            p.IKilledSomeone();
+            playerMovement.IKilledSomeone();
+        }
+        if (playerManager != null)
+        {
+            playerManager.onKill();
         }
     }
 }
