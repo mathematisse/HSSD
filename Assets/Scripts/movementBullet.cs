@@ -21,8 +21,11 @@ public class movementBullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var player = collision.gameObject.GetComponent<Player_Movement>();
-        if (player != null) player.IGotShot();
+        var p = collision.gameObject.GetComponent<Player_Movement>();
+        if (p != null && p.isRunning)
+        {
+            p.IKilledSomeone();
+        }
         Destroy(gameObject);
     }
 }
