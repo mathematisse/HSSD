@@ -137,7 +137,7 @@ public class Player_Movement : MonoBehaviour
         animator.speed = runSpeed / moveSpeed;
     }
     
-    private void StopRunning()
+    public void StopRunning()
     {
         if (!isRunning && !isPreparingToRun)
         {
