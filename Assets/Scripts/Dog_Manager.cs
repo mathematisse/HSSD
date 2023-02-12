@@ -17,25 +17,41 @@ public class Dog_Manager : MonoBehaviour
     private Rigidbody2D rb;
     private float speed = 10f;
     private Vector2 direct;
-    
+    private Animator animator;
+    private ParticleSystem _particleSystem;
+    private bool isDead = false;
+    private float death_timer = 0f;
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         spawn_light = GetComponentsInChildren<Light2D>()[0];
         var sr = GetComponentsInChildren<SpriteRenderer>();
         Dog_Sprite = sr[0];
         spawn_Line = sr[1];
         Dog_Sprite.color = start_Spawn_Color;
         rb = GetComponent<Rigidbody2D>();
+        _particleSystem = GetComponentsInChildren<ParticleSystem>()[1];
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+        {
+            death_timer -= Time.deltaTime;
+            if (death_timer < 0)
+            {
+                Destroy(gameObject);
+            }
+            return;
+        }
         if (hasSpawned)
         {
             direct = player.position - transform.position;
             direct.Normalize();
+            animator.SetFloat("VelX", direct.x);
+            animator.SetFloat("VelY", direct.y);
             return;
         }
         spawn_timer += Time.deltaTime * Time.timeScale;
@@ -56,7 +72,7 @@ public class Dog_Manager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (hasSpawned)
+        if (hasSpawned && !isDead)
         {
             rb.velocity = direct * speed;
         }
@@ -64,12 +80,23 @@ public class Dog_Manager : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (isDead)
+        {
+            return;
+        }
+        var _rb = collision.gameObject.GetComponent<Rigidbody2D>();
+        if (_rb != null)
+        {
+            _rb.AddForce(direct * 1000f);
+        }
         var p = collision.gameObject.GetComponent<Player_Movement>();
         if (p != null)
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(direct * 1000);
             p.StopRunning();
-            Destroy(gameObject);
         }
+        isDead = true;
+        Dog_Sprite.gameObject.SetActive(false);
+        death_timer = 1f;
+        _particleSystem.Play();
     }
 }
