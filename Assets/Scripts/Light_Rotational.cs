@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class test_gyro : MonoBehaviour
+public class Light_Rotational : MonoBehaviour
 {
     public float speed = 10.0f;
     
