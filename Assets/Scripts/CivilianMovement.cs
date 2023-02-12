@@ -28,7 +28,8 @@ public class CivilianMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         rightDir = rightDir * (-1);
-        if (collision.gameObject.GetComponent<Player_Movement>() != null)
+        var p = collision.gameObject.GetComponent<Player_Movement>();
+        if (p != null && p.isRunning)
         {
             bloodManager.DoBloodCollision(collision);
         }
