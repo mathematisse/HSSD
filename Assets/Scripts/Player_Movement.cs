@@ -14,7 +14,8 @@ public class Player_Movement : MonoBehaviour
     private Time_Manager timeManager;
     private Animator animator;
     private TrailRenderer trailRenderer;
-    private ParticleSystem _particleSystem;
+    private ParticleSystem _particleSystem_Trail;
+    private ParticleSystem _particleSystem_Load;
 
     public AnimationCurve speedCurve;
     public float speedCurveTime = 1.0f;
@@ -27,7 +28,9 @@ public class Player_Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         timeManager = FindObjectOfType<Time_Manager>();
         trailRenderer = GetComponentsInChildren<TrailRenderer>()[0];
-        _particleSystem = GetComponentsInChildren<ParticleSystem>()[0];
+        var ps = GetComponentsInChildren<ParticleSystem>();
+        _particleSystem_Trail = ps[0];
+        _particleSystem_Load = ps[1];
     }
 
     void Update()
@@ -89,6 +92,7 @@ public class Player_Movement : MonoBehaviour
         isPreparingToRun = true;
         speedCurveTimer = 0.0f;
         timeManager.SetTimeScale(runTimeScale);
+        _particleSystem_Load.Play();
     }
 
     private void StartRunning()
@@ -96,7 +100,7 @@ public class Player_Movement : MonoBehaviour
         isPreparingToRun = false;
         isRunning = true;
         trailRenderer.emitting = true;
-        _particleSystem.Play();
+        _particleSystem_Trail.Play();
     }
     
     private void StopRunning()
@@ -108,7 +112,8 @@ public class Player_Movement : MonoBehaviour
         isPreparingToRun = false;
         isRunning = false;
         trailRenderer.emitting = false;
-        _particleSystem.Stop();
+        _particleSystem_Trail.Stop();
+        _particleSystem_Load.Stop();
         timeManager.SetTimeScale(1.0f);
     }
 }
