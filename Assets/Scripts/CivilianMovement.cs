@@ -32,6 +32,7 @@ public class CivilianMovement : MonoBehaviour
         if (p != null && p.isRunning)
         {
             bloodManager.DoBloodCollision(collision);
+            p.IKilledSomeone();
         }
     }
 }
