@@ -300,9 +300,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 48673622}
+  Bullet: {fileID: 0}
+  firePoint: {fileID: 0}
   range: 15
   speed: 6
   moveSpeed: 3
+  fireRate: 1
 --- !u!1 &372622274
 GameObject:
   m_ObjectHideFlags: 0
