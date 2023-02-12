@@ -10,18 +10,28 @@ public class CivilianMovement : MonoBehaviour
 
     Blood_Manager bloodManager;
 
+    private Animator animator;
+    private Rigidbody2D rb;
     void Start()
     {
         bloodManager = GetComponent<Blood_Manager>();
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        animator.SetFloat("VelX", rb.velocity.x);
+        animator.SetFloat("VelY", rb.velocity.y);
     }
 
     void FixedUpdate()
     {
         if (rightDir == 1.0f) {
-            transform.Translate(Vector2.right * moveSpeed * Time.fixedDeltaTime);
+            rb.velocity = Vector2.right * moveSpeed;
         }
         if (rightDir == -1.0f) {
-            transform.Translate(Vector2.left * moveSpeed * Time.fixedDeltaTime);
+            rb.velocity = Vector2.left * moveSpeed;
         }
     }
 
