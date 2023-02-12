@@ -67,6 +67,7 @@ public class EnemyComportement : MonoBehaviour
         if(Time.fixedTime > nextFire) {
             nextFire = Time.fixedTime + fireRate;
             Instantiate(Bullet, firePoint.position, firePoint.rotation);
+            soundManager.instance.PlayManagerClip(4);
         }
     }
 }

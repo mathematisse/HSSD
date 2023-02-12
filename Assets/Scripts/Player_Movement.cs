@@ -125,6 +125,7 @@ public class Player_Movement : MonoBehaviour
         {
             return;
         }
+        soundManager.instance.PlayManagerClip(1);
         isPreparingToRun = true;
         speedCurveTimer = 0.0f;
         timeManager.SetTimeScale(runTimeScale);
@@ -133,6 +134,7 @@ public class Player_Movement : MonoBehaviour
 
     private void StartRunning()
     {
+        soundManager.instance.LoopManagerClip(2);
         isPreparingToRun = false;
         isRunning = true;
         trailRenderer.emitting = true;
@@ -146,6 +148,8 @@ public class Player_Movement : MonoBehaviour
         {
             return;
         }
+        soundManager.instance.StopSound();
+        soundManager.instance.PlayManagerClip(3);
         isPreparingToRun = false;
         isRunning = false;
         trailRenderer.emitting = false;
