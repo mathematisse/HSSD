@@ -926,6 +926,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -8578546025568831390, guid: 6b01320504d6683499954028525ecd13, type: 2}
+    - target: {fileID: 5481856408645033099, guid: d4b0a937a835a424e834a15c1cb6201e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6157935617272282028, guid: d4b0a937a835a424e834a15c1cb6201e, type: 3}
       propertyPath: m_Name
       value: Counter
