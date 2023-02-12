@@ -134,6 +134,7 @@ public class Player_Movement : MonoBehaviour
         isRunning = true;
         trailRenderer.emitting = true;
         _particleSystem_Trail.Play();
+        animator.speed = runSpeed / moveSpeed;
     }
     
     private void StopRunning()
@@ -148,6 +149,7 @@ public class Player_Movement : MonoBehaviour
         _particleSystem_Trail.Stop();
         _particleSystem_Load.Stop();
         timeManager.SetTimeScale(1.0f);
+        animator.speed = 1f;
     }
 
     public void IKilledSomeone()
@@ -155,5 +157,10 @@ public class Player_Movement : MonoBehaviour
         Debug.Log("Must have hurt");
         blood_trail_timer = 0f;
         bloodTrailRenderer.emitting = true;
+    }
+
+    public void IGotShot()
+    {
+        Debug.Log("Got shot");
     }
 }
