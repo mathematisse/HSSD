@@ -52,6 +52,13 @@ public class Player_Manager : MonoBehaviour
         }
     }
 
+    public void onHeal()
+    {
+        if (isDead) return;
+        hearts++;
+        heartsOutput.value = hearts;
+    }
+
     public void onDrug()
     {
         canRun = true;
