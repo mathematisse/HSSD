@@ -18,4 +18,5 @@ public class PNJ_manager : MonoBehaviour
         pnj1.SetActive(false);
         pnj2.SetActive(true);
     }
+    
 }

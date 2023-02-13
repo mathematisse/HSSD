@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class DialogueManager : MonoBehaviour
 {
+    private GameObject go;
     public Text nameText;
     public Text dialogueText;
 
@@ -22,8 +24,9 @@ public class DialogueManager : MonoBehaviour
         instance = this;
         sentences = new Queue<string>();
     }
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, GameObject go)
     {
+        this.go = go;
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;
         sentences.Clear();
@@ -52,6 +55,7 @@ public class DialogueManager : MonoBehaviour
     {
         isDisplaying = 0;
         animator.SetBool("IsOpen", false);
+        go.GetComponent<DialogueTrigger>().hasTalked = true;
     }
 
     void Update()

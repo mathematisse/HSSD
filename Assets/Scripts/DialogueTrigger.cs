@@ -1,16 +1,24 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
 
     public bool isInRange;
+    public bool isEndOfLevel;
 
+    public bool hasTalked;
+    
     void Update()
     {
         if(isInRange && Input.GetKeyDown(KeyCode.E))
         {
             TriggerDialogue();
+        }
+        if (isEndOfLevel && hasTalked)
+        {
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -32,6 +40,6 @@ public class DialogueTrigger : MonoBehaviour
 
     void TriggerDialogue()
     {
-        DialogueManager.instance.StartDialogue(dialogue);
+        DialogueManager.instance.StartDialogue(dialogue, gameObject);
     }
 }
