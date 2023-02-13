@@ -83,7 +83,6 @@ public class Player_Movement : MonoBehaviour
             if (speedCurveTimer >= speedCurveTime && rb.velocity.magnitude > 1f)
             {
                 StartRunning();
-                Debug.Log("Start Running");
             }
             float curveValue = speedCurve.Evaluate(speedCurveTimer / speedCurveTime);
             realSpeed = Mathf.Lerp(moveSpeed, runSpeed, curveValue);
@@ -91,7 +90,6 @@ public class Player_Movement : MonoBehaviour
         if (isRunning && rb.velocity.magnitude < 1f)
         {
             StopRunning();
-            Debug.Log("Stop Running");
         }
         if (bloodTrailRenderer.emitting)
         {
@@ -161,7 +159,6 @@ public class Player_Movement : MonoBehaviour
 
     public void IKilledSomeone()
     {
-        Debug.Log("Must have hurt");
         blood_trail_timer = 0f;
         bloodTrailRenderer.emitting = true;
         manager.onKill();
@@ -170,6 +167,5 @@ public class Player_Movement : MonoBehaviour
     public void IGotShot()
     {
         manager.onDamage();
-        Debug.Log("Got shot");
     }
 }
