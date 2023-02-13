@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player_Manager : MonoBehaviour
 {
@@ -62,7 +63,7 @@ public class Player_Manager : MonoBehaviour
     {
         if (hearts == 0) return;
         hearts--;
-        if (hearts == 0) isDead = true;
+        if (hearts == 0) { isDead = true; SceneManager.LoadScene(0); }
         heartsOutput.value = hearts;
     }
 

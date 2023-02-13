@@ -78,7 +78,7 @@ Transform:
   - {fileID: 7109471188322627559}
   - {fileID: 7109471187008557651}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7109471187758873992
 MonoBehaviour:
@@ -99,6 +99,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bb2610d373c4d824485ddd00c333ccbe, type: 3}
   - {fileID: 8300000, guid: 4786c5086d0848d4ca3c9294ce9c2465, type: 3}
   - {fileID: 8300000, guid: 481371f95b29e7f44871a877e73c4ca8, type: 3}
+  - {fileID: 8300000, guid: dbec750557d4f7b42b6043c3840d18d9, type: 3}
   musicSource: {fileID: 7109471189056225167}
   effectSource: {fileID: 7109471188322627558}
 --- !u!1 &7109471188322627557

@@ -45,6 +45,7 @@ public class bat_movement : MonoBehaviour
             isArrived = true;
             trip_companion = destination;
             coneLight.color = Color.green;
+            destination.GetComponent<PNJ_manager>().Get_Bat();
         }
     }
 
