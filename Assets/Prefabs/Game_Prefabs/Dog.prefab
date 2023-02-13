@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 117354872688245466}
   - component: {fileID: 117354872688245445}
-  m_Layer: 25
+  m_Layer: 24
   m_Name: Spawn_Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 117354872717908123}
   - component: {fileID: 117354872717908122}
-  m_Layer: 25
+  m_Layer: 24
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 117354872767917087}
   - component: {fileID: 117354872767917084}
   - component: {fileID: 117354872767917086}
-  m_Layer: 25
+  m_Layer: 24
   m_Name: Dog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 117354873966072130}
   - component: {fileID: 117354873966072140}
   - component: {fileID: 117354873966072141}
-  m_Layer: 25
+  m_Layer: 24
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5183,7 +5183,7 @@ GameObject:
   - component: {fileID: 117354874203743861}
   - component: {fileID: 117354874203743860}
   - component: {fileID: 2890674879640091321}
-  m_Layer: 25
+  m_Layer: 24
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5288,7 +5288,7 @@ GameObject:
   - component: {fileID: 1776889885920506816}
   - component: {fileID: 1968950729615713808}
   - component: {fileID: 7797024114032439018}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: Destroying_particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
