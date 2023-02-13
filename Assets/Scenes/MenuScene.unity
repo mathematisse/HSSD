@@ -797,7 +797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5481856408645033099, guid: d4b0a937a835a424e834a15c1cb6201e, type: 3}
       propertyPath: m_text
-      value: Heroes Slayer Simulator Deluxe
+      value: Heroes Slayer Simulator Deluxe 2
       objectReference: {fileID: 0}
     - target: {fileID: 5481856408645033099, guid: d4b0a937a835a424e834a15c1cb6201e, type: 3}
       propertyPath: m_fontSize
